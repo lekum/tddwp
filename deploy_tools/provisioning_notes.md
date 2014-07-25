@@ -21,12 +21,12 @@ Provisioning a new site
 * replace SITENAME with, eg, lekum.org 
 
 ## Folder structure:
-Assume we have a user account at /home/username
+Assume we have a user account at /home/username ::
 
-/home/username
-    └── sites
-        └── SITENAME
-            ├── database
-            ├── source
-            ├── static
-            └── virtualenv
+	/home/username
+	    └── sites
+		└── SITENAME
+		    ├── database
+		    ├── source
+		    ├── static
+		    └── virtualenv
