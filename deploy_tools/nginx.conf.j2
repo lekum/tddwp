@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name {{ host }};
+
+    location / {
+        proxy_pass http://unix:/tmp/{{ host }}.socket;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    location /static {
+        alias /home/alex/sites/{{ host }}/static;
+    }
+}
