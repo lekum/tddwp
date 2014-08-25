@@ -20,14 +20,14 @@
     <script>
 /*global $, test, equal */
 
-test("errors not be hidden unless the input is on focus", function () {
-        equal($('.has-error').is(':visible'), true);
+QUnit.test("errors not be hidden unless the input is on focus", function ( assert ) {
+        assert.equal($(".has-error").is(':visible'), true);
 });
 
-test("error should be hidden on focus", function () {
-      equal($('.has-error').is(':visible'), true);
-      $('#id_text').focus();
-      equal($('.has-error').is(':visible'), false);
+QUnit.test("error should be hidden on focus", function ( assert ) {
+      assert.equal($(".has-error").is(':visible'), true);
+      $("#id_text").focus();
+      assert.equal($(".has-error").is(':visible'), false);
 });
     </script>
 </body>
