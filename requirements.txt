@@ -1,2 +1,3 @@
 https://github.com/django/django/archive/stable/1.7.x.zip
 gunicorn==18.0
+requests>=2.4.1
