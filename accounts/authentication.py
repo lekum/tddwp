@@ -9,7 +9,7 @@ class PersonaAuthenticationBackend(object):
         data = {'assertion': assertion, 'audience': 'localhost'}
         print('sending to mozilla', data, file=sys.stderr)
         resp = requests.post('https://verifier.login.persona.org/verify',
-                data=data=)
+                             data=data)
         print('got', resp.content, file=sys.stderr)
 
         # Did the verifier respond?
