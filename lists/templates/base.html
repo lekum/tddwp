@@ -71,7 +71,7 @@ $(document).ready(function() {
             .fail(function() { navigator.id.logout(); });
             },
             onlogout: function() {
-            $.post('/accounts/logout')
+            $.post('/accounts/logout', {assertion: assertion, csrfmiddlewaretoken: csrf_token})
             .always(function() { window.location.reload(); });
             }
         });
