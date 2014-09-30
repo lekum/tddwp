@@ -45,8 +45,14 @@
 <script src="/static/accounts.js"></script>
 <script>
     $(document).ready(function() {
+            var user = "{{ user.email }}" || null;
+            var token = "{{ csrf_token }}";
+            var urls = {
+                login: "TODO",
+                logout: "TODO",
+            };
             Superlists.Accounts.initialize(navigator)
-            });
+    });
 </script>
 </body>
 </html>
