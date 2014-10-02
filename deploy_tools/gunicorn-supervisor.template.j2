@@ -1,7 +1,7 @@
-[program:{{ host }}]
-process_name = lekum
-command = /home/alex/sites/{{ host }}/virtualenv/bin/gunicorn superlists.wsgi --bind unix:/tmp/{{ host }}.socket
+[program:{{ app_user }}]
+process_name = {{ app_user }}
+command = /home/{{ app_user }}/sites/{{ app_url }}/virtualenv/bin/gunicorn superlists.wsgi --bind unix:/tmp/{{ host }}.socket
 autostart = true
 autorestart = true
-directory = /home/alex/sites/{{ host }}/source
-user = alex
+directory = /home/{{ app_user }}/sites/{{ app_url }}/source
+user = {{ app_user }} 

@@ -1,32 +1,16 @@
 Provisioning a new site
 =======================
 
-## Required packages:
+This instructions are valid for deploying on a Debian remote server.
 
-* nginx
-* Python 3
-* Git
-* pip
-* virtualenv
-* supervisor
+First, intall python2 and this packages::
 
-## Nginx Virtual Host config
+    pip install fabric jinja2
 
-* see nginx.template.conf
-* replace SITENAME with, eg, lekum.org 
+Then, run this::
 
-## Supervisor conf file
+    fab provision_and_deploy:host=debian@dev --set app_url="dev.net"
 
-* see gunicorn-supervisor.template.conf
-* replace SITENAME with, eg, lekum.org 
+where ``debian`` is the username that will host the app code, ``dev`` is the hostname and ``app_url`` will be the url to access the application.
 
-## Folder structure:
-Assume we have a user account at /home/username
-
-	/home/username
-	    └── sites
-		└── SITENAME
-		    ├── database
-		    ├── source
-		    ├── static
-		    └── virtualenv
+To deploy a new version, run just ``fab deploy:host=debian@dev``.

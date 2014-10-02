@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name {{ host }};
+    server_name {{ app_url }};
 
     location / {
         proxy_pass http://unix:/tmp/{{ host }}.socket;
@@ -8,6 +8,6 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
     }
     location /static {
-        alias /home/alex/sites/{{ host }}/static;
+        alias /home/{{ app_user }}/sites/{{ app_url }}/static;
     }
 }
