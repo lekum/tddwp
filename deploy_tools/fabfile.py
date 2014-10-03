@@ -80,7 +80,7 @@ def configure_nginx(context):
 
 
 def configure_gunicorn_supervisor(context):
-    upload_template('./gunicorn-supervisor.template.j2', '/etc/supervisor/conf.d/%s.conf' % env.app_url, context=context, use_jinja=True, use_sudo=True)
+    upload_template('./gunicorn-supervisor.template.j2', '/etc/supervisor/conf.d/%s.conf' % env.user, context=context, use_jinja=True, use_sudo=True)
 
 
 def restart_supervisor_nginx():
