@@ -71,7 +71,7 @@ def update_static_files(source_folder):
 
 
 def update_database(source_folder):
-    run('cd %s %% ../virtualenv/bin/python manage.py migrate --noinput' % (source_folder,))
+    run('cd %s && ../virtualenv/bin/python manage.py migrate --noinput' % (source_folder,))
 
 
 def configure_nginx(context):
