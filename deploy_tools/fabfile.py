@@ -76,7 +76,7 @@ def update_database(source_folder):
 
 def configure_nginx(context):
     upload_template('./nginx.conf.j2', '/etc/nginx/sites-available/%s' % env.app_url, context=context, use_jinja=True, use_sudo=True)
-    sudo('ln -s /etc/nginx/sites_available/%s /etc/nginx/sites-enabled/' % env.app_url)
+    sudo('ln -s /etc/nginx/sites-available/%s /etc/nginx/sites-enabled/' % env.app_url)
 
 
 def configure_gunicorn_supervisor(context):
