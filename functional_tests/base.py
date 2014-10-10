@@ -1,9 +1,9 @@
 import sys
-from django.contrib.staticfiles.testing import StaticLiveServerCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
-class FunctionalTest(StaticLiveServerCase):
+class FunctionalTest(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
