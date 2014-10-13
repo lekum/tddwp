@@ -27,7 +27,7 @@ TEMPLATE_DEBUG = True
 # This setting is changed by the deploy script
 DOMAIN = "localhost"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [DOMAIN]
 
 # Application definition
 

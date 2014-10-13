@@ -76,6 +76,9 @@ def update_database(source_folder):
 
 def configure_nginx(context):
     upload_template('./nginx.conf.j2', '/etc/nginx/sites-available/%s' % env.app_url, context=context, use_jinja=True, use_sudo=True)
+    destination_link = "/etc/nginx/sites-enabled/%s" % env.app_url 
+    if exists(destination_link):
+        sudo("rm %s" % destination_link)
     sudo('ln -s /etc/nginx/sites-available/%s /etc/nginx/sites-enabled/' % env.app_url)
 
 
