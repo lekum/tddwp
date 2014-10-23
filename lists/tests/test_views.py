@@ -1,10 +1,8 @@
-from unittest import skip
+from unittest.mock import Mock, patch
 
 from django.utils.html import escape
-from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
-from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
 
 from lists.views import new_list
@@ -154,13 +152,23 @@ class NewListTest(TestCase):
         response = self.client.post('/lists/new', data={'text': ''})
         self.assertIsInstance(response.context['form'], ItemForm)
 
-    def test_list_owner_is_saved_if_user_is_authenticated(self):
+    @patch('lists.views.List')
+    def test_list_owner_is_saved_if_user_is_authenticated(self, mockList):
+        mock_list = List.objects.create()
+        mock_list.save = Mock()
+        mockList.return_value = mock_list
         request = HttpRequest()
-        request.user = User.objects.create(email='a@b.com')
+        request.user = Mock()
+        request.user.is_authenticated.return_value = True
         request.POST['text'] = 'new list item'
+
+        def check_owner_assigned():
+            self.assertEqual(mock_list.owner, request.user)
+        mock_list.save.side_effect = check_owner_assigned
+
         new_list(request)
-        list_ = List.objects.first()
-        self.assertEqual(list_.owner, request.user)
+
+        mock_list.save.assert_called_once_with()
 
 class MyListsTest(TestCase):
 
