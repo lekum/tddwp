@@ -39,7 +39,7 @@ class MyListsTest(FunctionalTest):
 
         # She decides to start another list, just to see
         self.browser.get(self.server_url)
-        self.get_item_input_box().send_keys('Click cows').click()
+        self.get_item_input_box().send_keys('Click cows\n')
         second_list_url = self.browser.current_url
 
         # Under "My lists", her new list appears
