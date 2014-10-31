@@ -35,7 +35,9 @@ class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
         if self.against_staging:
             reset_database(self.server_host)
-        self.browser = webdriver.Firefox()
+        fp = webdriver.FirefoxProfile()
+        fp.set_preference('network.http.prompt-temp-redirect', False)
+        self.browser = webdriver.Firefox(fp)
         self.browser.implicitly_wait(DEFAULT_WAIT)
 
     def tearDown(self):
