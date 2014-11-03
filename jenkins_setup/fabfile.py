@@ -13,3 +13,14 @@ def install_jenkins():
     sudo("apt-get update -q -y")
     sudo("apt-get install -q -y jenkins")
     sudo("apt-get install -q -y git iceweasel python3 python-virtualenv xvfb")
+    # For npm
+    sudo("apt-get install -q -y curl build-essential openssl libssl-dev")
+    run("git clone https://github.com/joyent/node.git")
+    with cd("node"):
+        run("./configure")
+        run("make")
+        sudo("make install")
+    run("curl -L -O https://npmjs.org/install.sh")
+    sudo("chmod a+x install.sh")
+    sudo("./install.sh")
+    sudo("npm install -g phantomjs")
