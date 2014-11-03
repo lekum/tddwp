@@ -11,3 +11,5 @@ script:
     - "python manage.py test lists"
     - "python manage.py test accounts"
     - "python manage.py test functional_tests"
+    - "phantomjs superlists/static/tests/runner.js lists/static/tests/tests.html"
+    - "phantomjs superlists/static/tests/runner.js accounts/static/tests/tests.html"
