@@ -19,16 +19,18 @@
     <script src="../list.js"></script>
     <script>
 /*global $, test, equal */
-
-QUnit.test("errors not be hidden unless the input is on focus", function ( assert ) {
-        assert.equal($(".has-error").is(':visible'), true);
-});
-
+/*
 QUnit.test("error should be hidden on focus", function ( assert ) {
       assert.equal($(".has-error").is(':visible'), true);
       $("#id_text").focus();
       assert.equal($(".has-error").is(':visible'), false);
 });
+*/
+
+QUnit.test("errors not be hidden unless the input is on focus", function ( assert ) {
+        assert.equal($(".has-error").is(':visible'), true);
+});
+
     </script>
 </body>
 </html>
