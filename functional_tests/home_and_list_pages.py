@@ -61,7 +61,7 @@ class ListPage(object):
         )
 
 
-    def get_share_with_list(self):
+    def get_shared_with_list(self):
         return self.test.browser.find_elements_by_css_selector(
                 '.list-sharee'
         )
