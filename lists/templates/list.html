@@ -11,3 +11,12 @@
 		{% endfor %}
 	</table>
 {% endblock %} 
+
+{% block share_list_header %}Share this list{% endblock %}
+
+{% block share_list %}
+    <form method="POST" action="{% url 'share_list' list.id %}">
+        {% csrf_token %}
+        <input type="text" name="email" placeholder="your-friend@example.com">
+    </form>
+{% endblock %} 

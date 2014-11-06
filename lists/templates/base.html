@@ -55,6 +55,14 @@
                 {% endblock %}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>{% block share_list_header %}{% endblock %}</h1>
+                {% block share_list %}
+                {% endblock %}
+            </div>
+        </div>
 </div>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="http://login.persona.org/include.js"></script>
