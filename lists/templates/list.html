@@ -19,4 +19,22 @@
         {% csrf_token %}
         <input type="text" name="email" placeholder="your-friend@example.com">
     </form>
-{% endblock %} 
+{% endblock %}
+
+
+{% block list_owner %}
+<div id="id_list_owner">
+    {{ list.owner.email }}
+</div>
+{% endblock %}
+
+{% block list_shared_with %}
+    <h2>List shared with:</h2>
+    <div class="list-sharee">
+        <ul>
+        {% for partner in list.shared_with.all %}
+                <li>{{ partner.email }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

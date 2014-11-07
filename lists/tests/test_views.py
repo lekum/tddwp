@@ -224,4 +224,4 @@ class ShareListTest(TestCase):
                 '/lists/%d/share' % (list_.id,),
                  data={'email': 'a@b.com'}
         )
-        self.assertIn('a@b.com', list_.shared_with.all())
+        self.assertIn(user, list_.shared_with.all())

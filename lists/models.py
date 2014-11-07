@@ -2,9 +2,13 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
+
 class List(models.Model):
     
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    shared_with = models.ManyToManyField(settings.AUTH_USER_MODEL,
+                                         related_name='lists_shared_with_me', 
+                                         blank=True, null=True)
 
     @property
     def name(self):
