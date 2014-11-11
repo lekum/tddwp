@@ -1,5 +1,5 @@
 from fabric.contrib.files import append
-from fabric.api import run, task, sudo
+from fabric.api import run, task, sudo, cd
 
 @task
 def install_jenkins():
