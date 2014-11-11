@@ -71,15 +71,12 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-3 col-md-offset-3">
                 {% block list_shared_with %}
                 {% endblock %}
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h1>{% block share_list_header %}{% endblock %}</h1>
+            <div class="col-md-3">
+                <h2>{% block share_list_header %}{% endblock %}</h2>
                 {% block share_list %}
                 {% endblock %}
             </div>
