@@ -21,6 +21,6 @@ def install_jenkins():
         run("make")
         sudo("make install")
     run("curl -L -O https://npmjs.org/install.sh")
-    sudo("chmod a+x install.sh")
+    run("chmod +x install.sh")
     sudo("./install.sh")
     sudo("npm install -g phantomjs")
